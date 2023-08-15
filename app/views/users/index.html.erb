@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<h1>予定一覧</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>タイトル</th>
+      <th>開始日</th>
+      <th>終了日</th>
+      <th>終日</th>
+      <th>更新日</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.id %></td><!-- ID -->
+        <td><%= user.title %></td><!-- タイトル -->
+        <td><%= user.startdate.strftime("%Y/%m/%d") %></td><!-- 開始日 -->
+        <td><%= user.enddate.strftime("%Y/%m/%d") %></td><!-- 終了日 -->
+        <td><%= user.altday ? '⚪︎' : '' %></td><!-- 終日 -->
+        <td><%= user.updated_at.to_s(:datetime_jp)  %></td><!-- 更新日 -->
+        <td><%= link_to '詳細', user %></td><!-- 詳細 -->
+        <td><%= link_to '編集', edit_user_path(user) %></td><!-- 編集 -->
+        <td><%= link_to '削除', user, method: :delete, data: { confirm: '本当に削除しますか？', remote: false } %></td><!-- 削除 -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+  <p>予定合計<%= @datas %>件</p>
+  <p>本日の日付<%= @today.strftime("%Y/%m/%d") %></p>
+<%= link_to '新規作成', new_user_path, class: 'new_user' %>

@@ -13,3 +13,31 @@
  *= require_tree .
  *= require_self
  */
+
+header {
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    background-color: blue;
+    color: white;
+    padding: 5px;
+}
+
+table th {
+    background-color: #fbc25b;
+    padding: 10px 20px;
+  }
+  
+  table td {
+    background-color: #f9ecd5;
+    padding: 10px 20px;
+  }
+
+  .new_user {
+    font-size: 20px;
+    background-color: aqua;
+    padding: 10px;
+    height: 40px;
+    text-decoration: none;
+    color: white;
+  }
