@@ -1,0 +1,42 @@
+<%= form_with(model: user) do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "項目") %> の入力ミスがあります</h2>
+
+      <ul>
+        <% user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field"><!-- タイトル -->
+    <%= form.label :title,"タイトル" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field"><!-- 開始日 -->
+    <%= form.label :startdate,"開始日" %>
+    <%= form.date_select :startdate, {use_month_numbers: true} %>
+  </div>
+
+  <div class="field"><!-- 終了日 -->
+    <%= form.label :enddate,"終了日" %>
+    <%= form.date_select :enddate, {use_month_numbers: true} %>
+  </div>
+
+  <div class="field"><!-- スケジュールメモ -->
+    <%= form.label :memo,"スケジュールメモ" %>
+    <%= form.text_area :memo %>
+  </div>
+
+  <div class="field"><!-- 終日 -->
+    <%= form.label :終日 %>
+    <%= form.check_box :altday %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit"保存" %>
+  </div>
+<% end %>

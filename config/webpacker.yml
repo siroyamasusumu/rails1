@@ -66,6 +66,7 @@ development:
     use_local_ip: false
     quiet: false
     pretty: false
+    enabled: true
     headers:
       'Access-Control-Allow-Origin': '*'
     watch_options:
@@ -90,3 +91,12 @@ production:
 
   # Cache manifest.json for performance
   cache_manifest: true
+#追加
+babel:
+  presets:
+    - "@babel/preset-env"
+    - "@babel/preset-react"
+  plugins:
+    - "@babel/plugin-proposal-class-properties"
+    - "@babel/plugin-proposal-private-property-in-object"
+    

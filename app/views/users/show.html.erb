@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>タイトル:</strong><!-- タイトル -->
+  <%= @user.title %>
+</p>
+
+<p>
+  <strong>開始日:</strong><!-- 開始日 -->
+  <%= @user.startdate.strftime("%Y/%m/%d") %>
+</p>
+
+<p>
+  <strong>終了日:</strong><!-- 終了日 -->
+  <%= @user.enddate.strftime("%Y/%m/%d") %>
+</p>
+
+<p>
+  <strong>スケジュールメモ:</strong><!-- スケジュールメモ -->
+  <%= @user.memo %>
+</p>
+
+<p>
+  <strong>終日:</strong><!-- 終日 -->
+  <%= @user.altday ? '⚪︎' : '' %>
+</p>
+
+<%= link_to '編集', edit_user_path(@user) %> |
+<%= link_to '← 一覧に戻る', users_path %>
